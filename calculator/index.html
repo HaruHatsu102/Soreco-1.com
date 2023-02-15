@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appliance Consumption Calculator</title>
+
+    <!-- <script src="showChart.js"></script> -->
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<script src="script.js"></script>
+<script src="Chart.js"></script>
+</head>
+<div class="col-lg-3 bg-dark d-none d-lg-block">
+    <a href="../user/user.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+        <h1 class="m-0 display-4 text-primary text-uppercase">Soreco 1</h1>
+    </a>
+</div>
+<body>
+    <h1>Appliance Consumption Calculator</h1>
+    <p></p>
+    <label for="elcCost">Rate of electricity in your area (per kilowatt)</label>
+    <input type="number" name="" id="elRate">
+    <br>
+    <br>
+
+    <table cellpadding="5px" class="rwd-table">
+        <tr>
+            <th>Name of appliance</th>
+            <th>No. of appliance BEING USED</th>   
+            <th>No. of hours it is used per day (if it is in minutes please <br>write it in decimals eg 30 mins = 0.5 hrs)</th>
+            <th>No. of daily use in a month</th>      
+            <th>Total Power used in a one day (output only) (in kilowatt)</th>
+            <th>Total power consumed in Month (output only) (in kilowatt)</th>
+            <th>Money spent </th>
+        </tr>
+        <tr>
+            <td>
+                <select name="A/c" id="acs">
+                <option value="795">A/c(0.75 hp)</option>
+                <option value="945">A/c(1.0 hp)</option>
+                <option value="1250">A/c(1.5 hp)</option>
+                <option value="1915">A/c(2.0 hp)</option>
+                </select>
+            </td>
+            <td> <input type="number" name="" id="ac"></td>
+            <td> <input type="number" name="" id="acHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="acDaily"></td>   
+            <td id="acday"></td>
+            <td id="acMonth"></td>
+            <td id="acmnSpnt"></td>
+            
+        
+        </tr>
+        <tr>
+            <td>
+                <select name="tvs" id="tvs">
+                <option value="65">TV. Set Color, 12"</option>
+                <option value="85">TV. Set Color, 14"</option>
+                <option value="90">TV. Set Color, 16"</option>
+                <option value="90">TV. Set Color, 18"</option>
+                <option value="110">TV. Set Color, 20"</option>
+                <option value="180">TV. Set Color, 26"</option>
+                <option value="30">24" LED TV</option>
+                <option value="60">32" LED TV</option>
+                <option value="70">42" LED TV</option>
+                <option value="90">50" LED TV</option>
+                <option value="120">65" LED TV</option>
+                <option value="228">82" LED TV</option>
+                </select>     
+            </td>
+            <td> <input type="number" name="" id="tv"></td>
+            <td> <input type="number" name="" id="tvHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="tvDaily"></td>
+            <td id="tvday"></td>
+            <td id="tvMonth"></td>
+            <td id="tvmnSpnt"></td>
+
+        </tr>
+        <tr>
+            <td> 
+                <select name="fridges" id="fridges">
+                <option value="300">Fridge freezer 12 cu.ft</option>
+                <option value="170">Fridge 10 cu.ft</option> 
+                <option value="150">Fridge 8 cu.ft</option>
+                <option value="265">Freezer 15 cu.ft(frost fres)</option>
+                <option value="250">Freezer non-self defrosting</option>
+            </td>
+            <td> <input type="number" name="" id="fridge"></td>
+            <td> <input type="number" name="" id="fridgeHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="fridgeDaily"></td>
+            <td id="fridgeday"></td>
+            <td id="fridgeMonth"></td>
+            <td id="fridgemnSpnt"></td>
+        </tr>
+        <tr>
+            <td>
+                <select name="wms" id="wms">
+                <option value="300" >Washing Machine(Automatic)</option>
+                
+            </td>
+            <td> <input type="number" name="" id="wm"></td>
+            <td> <input type="number" name="" id="wmHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="wmDaily"></td>
+            <td id="wmday"></td>
+            <td id="wmMonth"></td>
+            <td id="wmmnSpnt"></td>
+        </tr>
+
+        <tr>
+            <td> 
+                <select name="fan" id="fan">
+                <option value="35" >Desk Fan 10"</option>
+                <option value="50" >Desk Fan 12"</option>
+                <option value="74" >Desk Fan 16"</option>
+                <option value="175" >Desk Fan 20"</option>
+                <option value="80" >Stand Fan 16"</option>
+                 
+            </td>
+            <td> <input type="number" name="" id="fans"></td>
+            <td> <input type="number" name="" id="fansHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="fansDaily"></td>
+            <td id="fanday"></td>
+            <td id="fanMonth"></td>
+            <td id="fanmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="cfan" id="cfan">
+                <option value="140" >Ceiling Fan, 3-blader</option>
+                <option value="160" >Ceiling Fan, 4-blader</option>
+                <option value="50" >Fan Box Type</option>
+                
+            </td>
+            <td> <input type="number" name="" id="cfans"></td>
+            <td> <input type="number" name="" id="cfansHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="cfansDaily"></td>
+            <td id="cfanday"></td>
+            <td id="cfanMonth"></td>
+            <td id="cfanmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="microwave" id="microwave">
+                    <option value="1450" >Oven(Electronic)</option>
+                    <option value="1200" >Microwave Oven</option>
+                    <option value="1000" >Turbo Boiler</option>
+            </td>
+            <td> <input type="number" name="" id="micro"></td>
+            <td> <input type="number" name="" id="microHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="microDaily"></td>
+            <td id="microday"></td>
+            <td id="microMonth"></td>
+            <td id="micromnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="mixes" id="mixes">
+                    <option value="300" >Blender</option>
+                    <option value="600" >Bread Toaster</option>
+            </td>
+            <td> <input type="number" name="" id="mix"></td>
+            <td> <input type="number" name="" id="mixHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="mixDaily"></td>
+            <td id="mixday"></td>
+            <td id="mixMonth"></td>
+            <td id="mixmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="rangers" id="rangers">
+                    <option value="8200" >Ranger, 4-burner</option>
+                    <option value="3300" >Ranger, 2-burner</option>
+            </td>
+            <td> <input type="number" name="" id="ranger"></td>
+            <td> <input type="number" name="" id="rangerHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="rangerDaily"></td>
+            <td id="rangerday"></td>
+            <td id="rangerMonth"></td>
+            <td id="rangermnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="ricecookers" id="ricecookers">
+                    <option value="450" >Rice Cooker, 1-liter</option>
+                    <option value="650" >Rice Cooker, 1.8-liter</option>
+            </td>
+            <td> <input type="number" name="" id="ricecooker"></td>
+            <td> <input type="number" name="" id="ricecookerHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="ricecookerDaily"></td>
+            <td id="ricecookerday"></td>
+            <td id="ricecookerMonth"></td>
+            <td id="ricecookermnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="drinks" id="drinks">
+                    <option value="550" >Water Dispenser(Heater)</option>
+                    <option value="90" >Water Dispenser(Cooler)</option>
+                    <option value="600" >Coffee Maker</option>
+                    <option value="600" >Airpot</option>
+            </td>
+            <td> <input type="number" name="" id="drink"></td>
+            <td> <input type="number" name="" id="drinkHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="drinkDaily"></td>
+            <td id="drinkday"></td>
+            <td id="drinkMonth"></td>
+            <td id="drinkmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="computer" id="computer">
+                    <option value="225" >Computer</option> 
+            </td>
+            <td> <input type="number" name="" id="comp"></td>
+            <td> <input type="number" name="" id="compHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="compDaily"></td>
+            <td id="compday"></td>
+            <td id="compMonth"></td>
+            <td id="compmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="peripheral" id="peripherals">
+                    <option value="175" >Printer</option> 
+                    <option value="12" >Scanner</option> 
+            </td>
+            <td> <input type="number" name="" id="peripheral"></td>
+            <td> <input type="number" name="" id="peripheralHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="peripheralDaily"></td>
+            <td id="peripheralday"></td>
+            <td id="peripheralMonth"></td>
+            <td id="peripheralmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> 
+                <select name="blbs" id="blbs">
+                    <option value="60" >Incandescent lightbulb</option> 
+                    <option value="10" >LED lightbulb</option> 
+            </td>
+            <td> <input type="number" name="" id="blb"></td>
+            <td> <input type="number" name="" id="blbHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="blbDaily"></td>
+            <td id="blbday"></td>
+            <td id="blbMonth"></td>
+            <td id="blbmnSpnt"></td>
+        </tr>
+       
+        <tr>
+            <td>
+                <select name="clothes" id="clothes">
+                    <option value="1000" >Flat Iron</option> 
+                    <option value="1500" >Clothes Dryer</option>
+                    <option value="75" >Sewing Machine</option>  
+            </td>
+            <td> <input type="number" name="" id="clothing"></td>
+            <td> <input type="number" name="" id="clothingHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="clothingDaily"></td>
+            <td id="clothingday"></td>
+            <td id="clothingMonth"></td>
+            <td id="clothingmnSpnt"></td>
+        </tr>
+        <tr>
+            <td>
+                <select name="lights" id="lights">
+                    <option value="30" >Fluorescent Lamp</option> 
+                    <option value="120" >Ceiling Fixtures(3-lamps)</option>
+            </td>
+            <td> <input type="number" name="" id="light"></td>
+            <td> <input type="number" name="" id="lightHour"></td>
+            <td> <input type="number" min="0" max="31" name="" id="lightDaily"></td>
+            <td id="lightday"></td>
+            <td id="lightMonth"></td>
+            <td id="lightmnSpnt"></td>
+        </tr>
+    </table>
+    <datalist id="yesorno"> 
+        <option value="Yes"></option>
+        <option value="No"></option>
+    </datalist> 
+    <br>
+<div class="but"><button onclick="Calculate()" id="btn">Calculate</button></div> <div id="scr"> Scroll down for more results</div>
+<br>
+<br>
+<div class="suggstandrslt">
+<p id="ttlpwr"></p>
+<p id="emCost"></p>
+<p id="sgst"></p>
+</div>
+
+
+<div class="chart">
+    <canvas id="chart" style="width: 50; height: 50px;"></canvas>
+</div>
+
+
+</body>
+</html>
